@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css"> Ensure this path is correct
+</head>
+<body>
+    <style>
+        /* CSS Variables for consistency */
+:root {
+    --navbar-bg: #111;
+    --text-color: #eee;
+    --accent-color: #dd527f;
+    --border-radius: 10px;
+    --transition-speed: 200ms;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #000;
+  
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    position: sticky;
+    top: 1vw;
+    margin: 1vw auto;
+    max-width: 98%;
+    height: 60px;
+    background: var(--navbar-bg);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    transition: border-radius var(--transition-speed) linear 600ms;
+  }
+  
+  .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 200;
+    padding: 4px 10px;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    transition: background var(--transition-speed);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .links a.active {
+    background: var(--accent-color);
+  }
+  
+  .button-indicator {
+    position: absolute;
+    bottom: 0;
+    height: 5px;
+    background: var(--accent-color);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 678px) {
+    .navbar {
+      flex-wrap: wrap;
+    }
+  
+    .links {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: var(--navbar-bg);
+      display: grid;
+      text-align: center;
+      align-items: center;
+      gap: 0;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 800ms ease-in-out;
+    }
+  
+    .navbar.active .links {
+      max-height: 250px;
+    }
+  
+    .hamburger-btn {
+      display: block;
+      width: 24px;
+      height: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+    }
+  
+    .hamburger-btn span {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      transition: transform 500ms ease-in-out, top 500ms ease-in-out;
+    }
+  
+    .hamburger-btn span:nth-child(1) {
+      top: 0;
+    }
+  
+    .hamburger-btn span:nth-child(3) {
+      top: 100%;
+    }
+  
+    .navbar.active .hamburger-btn span {
+      top: 50%;
+    }
+  
+    .navbar.active .hamburger-btn span:nth-child(1) {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  
+    .navbar.active .hamburger-btn span:nth-child(3) {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  
+    .navbar.active .hamburger-btn span:nth-child(2) {
+      display: none;
+    }
+  }
+  
+  
+   .main{
+      color:rgb(215, 200, 200);
+      align-content: center;
+      margin: 100px;
+    }
+  
+    .block{
+      position: relative;
+      margin: 10% auto 0;
+      width: 55%;
+      height: 400px;
+      background: linear-gradient(0deg, black, rgba(44, 43, 43));
+    }
+  
+    .glow::before,
+    .glow::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #ff00c8,
+        #ff0000
+      );
+      background-size: 400%;
+      z-index: -1;
+      width: calc(100% + 5px);
+      height: calc(100% + 5px);
+      animation:animate 20s linear infinite;
+    }
+    @keyframes animate {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 400% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+    .glow::after {
+      filter: blur(40px);
+    }
+  
+  
+    .main h1{
+      margin-top: 35px;
+      padding-bottom: 15px;
+      border: #47b021 solid 2px;
+      border-radius: 15px;
+      padding: 15px;
+      font-weight: 800;
+      font-size: 35px;
+    }
+    .lab1{
+      font-size: 20px;
+      font-weight: 600;
+      padding-bottom: 15px;
+      color: var(--accent-color);
+      display: flex;
+    }
+  
+    .form{
+      margin-top: 20px;
+    }
+  
+  
+    .form input[type="file"] {
+        padding: 12px;
+        margin-bottom: 15px;
+        border: #47b021 solid 2px;
+        border-radius: 6px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+  
+  
+    
+    .btn {
+      position: relative;
+      font-size: 15px;
+      font-weight: 800;
+      z-index: 0;
+      padding: 10px 20px;
+      display: flex;
+      margin-top: 15px;
+      border-radius: 15px;
+      color: var(--accent-color);
+    }
+    .btn::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 15px;
+    }
+  
+    .btn::before {
+      content: "";
+      background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 600%;
+      z-index: -1;
+      width: calc(100% + 10px);
+      height:  calc(100% + 10px);
+      filter: blur(8px);
+      animation: glowing 20s linear infinite;
+      transition: opacity .3s ease-in-out;
+      border-radius: 10px;
+      opacity: 0;
+    }
+    
+    @keyframes glowing {
+      0% {background-position: 0 0;}
+      50% {background-position: 400% 0;}
+      100% {background-position: 0 0;}
+    }
+    
+    /* hover */
+     .btn:hover::before {
+      opacity: 1;
+    }
+    
+    .btn:active:after {
+      background: transparent;
+    }
+    
+    .btn:active {
+      color: #000;
+      font-weight: bold;
+    } 
+    
+    </style>
+    <nav class="navbar">
+        <div class="links" id="navbarLinks">
+            <a href="#" class="nav-link active">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Pricing</a>
+            <a href="#" class="nav-link">Gallery</a>
+            <a href="#" class="nav-link">Contact</a>
+            <div class="button-indicator"></div>
+        </div>
+        <button class="hamburger-btn" aria-label="Toggle navigation menu" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="block glow">
+        <section class="main">
+            <h1>Upload PDF File</h1>
+            <form action="/upload" method="POST" enctype="multipart/form-data" class="form">
+                <label class="lab1">Upload Your Resume</label>
+                <input type="file" name="pdfFile" accept=".pdf" required>
+                <button class="btn" type="submit">Upload</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
